@@ -134,8 +134,8 @@ export default function TailorWebsite() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[1, 2].map((i) => (
               <div key={i} className="bg-white p-6 rounded-lg shadow-md">
-                <p className=" text-black mb-4">"Elegant Stitches has transformed my wardrobe. Their attention to detail and perfect fit is unmatched."</p>
-                <p className="font-semibold  text-black">- Happy Client {i}</p>
+                <p className=" text-black mb-4">Elegant Stitches has transformed my wardrobe. Their attention to detail and perfect fit is unmatched.</p>
+                <p className="font-semibold  text-black"> Happy Client {i}</p>
               </div>
             ))}
           </div>
