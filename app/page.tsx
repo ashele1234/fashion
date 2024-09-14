@@ -110,7 +110,11 @@ export default function TailorWebsite() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {products.map(product => (
               <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <Image src={product.image} alt={product.name} className="w-full h-48 object-cover" />
+                <Image 
+                width={0}
+                height={0}
+                src={product.image} alt={product.name} className="w-full h-48 object-cover" 
+                />
                 <div className="p-4">
                   <h3 className="text-xl font-semibold mb-2 text-black">{product.name}</h3>
                   <p className=" mb-4  text-black">₦{product.price.toLocaleString()}</p>
