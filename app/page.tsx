@@ -24,7 +24,7 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Classic Suit", price: 75000, image:"../app/assets/images/collection2.png?height=200&width=200" },
+  { id: 1, name: "Classic Suit", price: 75000, image:"/placeholder.svg?height=200&width=200" },
   { id: 2, name: "Summer Dress", price: 45000, image: "/placeholder.svg?height=200&width=200" },
   { id: 3, name: "Wedding Gown", price: 150000, image: "/placeholder.svg?height=200&width=200" },
   { id: 4, name: "Casual Shirt", price: 25000, image: "/placeholder.svg?height=200&width=200" },
