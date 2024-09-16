@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import DropDown from './DropDown'
 
-import "../app/assets/images/collection2.png"
+
 import Image from 'next/image'
 import logo from "../app/assets/images/logo.png"
 
