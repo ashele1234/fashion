@@ -18,36 +18,21 @@ const DropDown = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
-          <span>Edit</span>
-          <span className="ml-auto">⌘ E</span>
+        <a href="http://localhost:3000/"><span>Home</span></a>
+          <span className="ml-auto">⌘ H</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <span>Duplicate</span>
+          <a href="#products"><span>Designs</span></a>
           <span className="ml-auto">⌘ D</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <span>Archive</span>
-          <span className="ml-auto">⌘ N</span>
+          <span>About</span>
+          <span className="ml-auto">⌘ A</span>
         </DropdownMenuItem>
-
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Menu</DropdownMenuSubTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Move to project…</DropdownMenuItem>
-            <DropdownMenuItem>Move to folder…</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Advanced options…</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenuSub>
-
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Share</DropdownMenuItem>
-        <DropdownMenuItem>Add to favorites</DropdownMenuItem>
-        <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <span>Delete</span>
-          <span className="ml-auto">⌘ ⌫</span>
+          <span>Contact</span>
+          <span className="ml-auto">⌘ C</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
