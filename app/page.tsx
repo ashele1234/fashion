@@ -17,7 +17,7 @@ import Img1 from "../app/assets/images/IMG-20240915-WA0001.jpg"
 import Img2 from "../app/assets/images/IMG-20240915-WA0002.jpg"
 import Img3 from "../app/assets/images/IMG-20240915-WA0003.jpg"
 import Img4 from "../app/assets/images/IMG-20240915-WA0004.jpg"
-import Img5 from "../app/assets/images/IMG-20240915-WA0005.jpg"
+import Img5 from "../app/assets/images/IMG-20240915-WA0009.jpg"
 import Img6 from "../app/assets/images/IMG-20240915-WA0006.jpg"
 import Img7 from "../app/assets/images/IMG-20240915-WA0007.jpg"
 import Img8 from "../app/assets/images/IMG-20240915-WA0008.jpg"
@@ -178,6 +178,7 @@ export default function TailorWebsite() {
                 <a href="#" className="hover:text-gray-300">Facebook</a>
                 <a href="#" className="hover:text-gray-300">Instagram</a>
                 <a href="#" className="hover:text-gray-300">Twitter</a>
+                <a href="#" className="hover:text-gray-300">WatsApp</a>
               </div>
             </div>
           </div>
