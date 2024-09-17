@@ -13,6 +13,14 @@ import DropDown from './DropDown'
 
 import Image from 'next/image'
 import logo from "../app/assets/images/logo.png"
+import Img1 from "../app/assets/images/IMG-20240915-WA0001.jpg"
+import Img2 from "../app/assets/images/IMG-20240915-WA0002.jpg"
+import Img3 from "../app/assets/images/IMG-20240915-WA0003.jpg"
+import Img4 from "../app/assets/images/IMG-20240915-WA0004.jpg"
+import Img5 from "../app/assets/images/IMG-20240915-WA0005.jpg"
+import Img6 from "../app/assets/images/IMG-20240915-WA0006.jpg"
+import Img7 from "../app/assets/images/IMG-20240915-WA0007.jpg"
+import Img8 from "../app/assets/images/IMG-20240915-WA0008.jpg"
 
 
 
@@ -20,18 +28,18 @@ interface Product {
   id: number
   name: string
   price: number
-  image: string
+  image: any
 }
 
 const products: Product[] = [
-  { id: 1, name: "Classic Suit", price: 75000, image:"/placeholder.svg?height=200&width=200" },
-  { id: 2, name: "Summer Dress", price: 45000, image: "/placeholder.svg?height=200&width=200" },
-  { id: 3, name: "Wedding Gown", price: 150000, image: "/placeholder.svg?height=200&width=200" },
-  { id: 4, name: "Casual Shirt", price: 25000, image: "/placeholder.svg?height=200&width=200" },
-  { id: 5, name: "Polo", price: 25000, image: "/placeholder.svg?height=200&width=200" },  
-  { id: 6, name: "Agbada", price: 25000, image: "/placeholder.svg?height=200&width=200" },  
-  { id: 7, name: "Native", price: 25000, image: "/placeholder.svg?height=200&width=200" },  
-  { id: 8, name: "Danshiki", price: 25000, image: "/placeholder.svg?height=200&width=200" }, 
+  { id: 1, name: "Classic Suit", price: 75000, image:Img1 },
+  { id: 2, name: "Summer Dress", price: 45000, image:Img2},
+  { id: 3, name: "Wedding Gown", price: 150000, image:Img3 },
+  { id: 4, name: "Casual Shirt", price: 25000, image:Img4 },
+  { id: 5, name: "Polo", price: 25000, image:Img5 },  
+  { id: 6, name: "Agbada", price: 25000, image:Img6 },  
+  { id: 7, name: "Native", price: 25000, image:Img7 },  
+  { id: 8, name: "Danshiki", price: 25000, image:Img8 }, 
 ];
 
 
@@ -90,7 +98,7 @@ export default function TailorWebsite() {
                       <span>{item.name}</span>
                       <span>₦{item.price.toLocaleString()}</span>
                      <div className='w-[100px] h-[100px]'>
-                    <img src={item.image} alt="images"/>
+                    <Image src={item.image} alt="images"/>
                      </div>
                       <Button variant="ghost" size="sm" onClick={() => removeFromCart(item.id)}>
                         Remove
@@ -123,7 +131,7 @@ export default function TailorWebsite() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {products.map(product => (
               <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img  className="w-full h-48 object-cover"src={product.image} alt={product.name}/>
+                <Image  className="w-full h-48 object-cover"src={product.image} alt={product.name}/>
                 <div className="p-4">
                   <h3 className="text-xl font-semibold mb-2 text-black">{product.name}</h3>
                   <p className=" mb-4  text-black">₦{product.price.toLocaleString()}</p>
