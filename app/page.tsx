@@ -12,6 +12,7 @@ import DropDown from './DropDown'
 
 
 import Image from 'next/image'
+ import "../app/assets/images/collection2.jpg"
 import logo from "../app/assets/images/logo.png"
 import Img1 from "../app/assets/images/IMG-20240915-WA0001.jpg"
 import Img2 from "../app/assets/images/IMG-20240915-WA0002.jpg"
@@ -116,7 +117,7 @@ export default function TailorWebsite() {
       </header>
 
       {/* Hero Section */} 
-      <section  className="text-white py-20 h-[100vh] flex justify-center items-center bg-[url('../app/assets/images/Collection2.png')] bg-center bg-cover">
+      <section  className="text-white py-20 h-[100vh] flex justify-center items-center bg-[url('../app/assets/images/collection2.jpg')] bg-center bg-cover">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">Bestspoke Tailoring for Every Occasion</h2>
           <p className="text-xl mb-8">Crafting elegance, one stitch at a time</p>
