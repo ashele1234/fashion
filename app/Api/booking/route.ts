@@ -59,7 +59,7 @@ export const GET=async(req:NextRequest,res:NextResponse)=>{
        
     } catch (res) {
        return NextResponse.json({
-           message:"error deleting unsuccessfuly",
+           message:"error deleting ",
            status:400,
        })
     }

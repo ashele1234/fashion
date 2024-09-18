@@ -5,11 +5,8 @@ import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { format } from "date-fns"
-import { Calendar } from 'lucide-react'
-// import { headers } from 'next/headers'
 
-const  Page=()=>{
+const Page = () => {
   const router = useRouter()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -19,7 +16,7 @@ const  Page=()=>{
   const [serviceType, setServiceType] = useState('')
   const [notes, setNotes] = useState('')
 
-  const handleSubmit = async (formdata: FormData) => {
+  const FormAction = async (formdata: FormData) => {
     formdata.get("name")
     formdata.get("email")
     formdata.get("phoneNumber")
@@ -27,28 +24,30 @@ const  Page=()=>{
     formdata.get("time")
     formdata.get("service")
     formdata.get("additionalNotes")
-    const url = "http://localhost:3000/Api/booking"
+    const url = "/Api/booking"
+    
     try {
       const response = await fetch(url, {
         method: 'POST',
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ name, email, phoneNumber, date, time, serviceType, notes })
-      });
-
+      })
+      
       if (response.ok) {
-        router.push("http://localhost:3000/");
+       setTimeout(() => {
+        router.push("http://localhost:3000/")
+       }, 3000)
       } else {
-        console.error("Error signing up");
+        console.error("Error signing up")
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error)
     }
   }
-
   return (
     <div className="container mx-auto px-4 py-16">
       <h1 className="text-4xl font-bold mb-8 text-center">Book an Appointment</h1>
-      <form action={handleSubmit} className="max-w-md mx-auto space-y-6">
+      <form onSubmit={(e) => { e.preventDefault(); FormAction(new FormData(e.currentTarget as HTMLFormElement)); }} className="max-w-md mx-auto space-y-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
           <Input
@@ -130,9 +129,10 @@ const  Page=()=>{
             className="h-24"
           />
         </div>
-        <Button type="submit" className="w-full">Book Appointment</Button>
+        <Button type="submit" className="w-full" onClick={() => alert("Appointment Booked Successfully")}>Book Appointment</Button>
       </form>
     </div>
+
   )
 }
 export default Page

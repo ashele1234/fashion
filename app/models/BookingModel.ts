@@ -1,39 +1,44 @@
-import { timeStamp } from "console";
-import { Ibook } from "../utils/interface";
-import { model, models, Schema } from "mongoose";
+
+import { model, models, Schema, Document } from "mongoose";
+import { IBook } from "../utils/interface";
 
 
+interface IBookData extends IBook, Document {}
 
-interface Ibookdata extends Ibook,Document{}
 
-const IbookModel=new Schema(
-    {
-        name:{
-            type:String
-        },
-        email:{
-            type:String
-        },
-         phoneNumber:{
-            type:String
-        },
-         date:{
-            type:String
-        },
-        time:{
-            type:String
-        },
-        service:{
-            type:String
-        },
-         additionalNotes:{
-            type:String
-        },
+const BookModel = new Schema(
+  {
+    name: {
+      type: String,
+      required: true
     },
-    {timestamps:true}
-)
+    email: {
+      type: String,
+      required: true
+    },
+    phoneNumber: {
+      type: String,
+      required: true
+    },
+    date: {
+      type: String,
+      required: true
+    },
+    time: {
+      type: String,
+      required: true
+    },
+    service: {
+      type: String,
+      required: true
+    },
+    additionalNotes: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
-const Bookdata = models.books || model<Ibookdata>("Apointments",IbookModel)
+const Bookdata = models.Appointments || model<IBookData>("Appointments", BookModel);
 
-export default Bookdata
-
+export default Bookdata;
