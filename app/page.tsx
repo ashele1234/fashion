@@ -22,17 +22,18 @@ import Img5 from "../app/assets/images/IMG-20240915-WA0009.jpg"
 import Img6 from "../app/assets/images/IMG-20240915-WA0006.jpg"
 import Img7 from "../app/assets/images/IMG-20240915-WA0007.jpg"
 import Img8 from "../app/assets/images/IMG-20240915-WA0008.jpg"
+import Link from 'next/link'
 
 
-
-interface Product {
-  id: number
-  name: string
-  price: number
-  image: any
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: any;
+  
 }
 
-const products: Product[] = [
+ export const products: Product[] = [
   { id: 1, name: "Classic Suit", price: 75000, image:Img1 },
   { id: 2, name: "Summer Dress", price: 45000, image:Img2},
   { id: 3, name: "Wedding Gown", price: 150000, image:Img3 },
@@ -46,7 +47,6 @@ const products: Product[] = [
 
 export default function TailorWebsite() {
   const [cart, setCart] = useState<Product[]>([])
-
   const addToCart = (product: Product) => {
     setCart([...cart, product])
   }
@@ -60,7 +60,7 @@ export default function TailorWebsite() {
   return (
     <div className="">
       {/* Header */}
-      <header className="bg-white shadow-sm h-[70px] flex justify-center items-center w-full">
+      <header className="bg-white shadow-sm h-[70px] flex justify-center items-center w-full fixed top-0 z-[200]">
         <div className="bg-white w-full h-[70px] mx-auto px-4 py-4 flex justify-between items-center fixed top-0">
         <Image 
                 width={0}
@@ -79,7 +79,7 @@ export default function TailorWebsite() {
           <div className="max-sm:flex md:hidden lg:hidden"><DropDown/></div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon" className='bg-black'>
+              <Button variant="outline" size="icon" className='bg-white'>
                 <ShoppingCart className="h-4 w-4 border-black"  />
                 <span className="sr-only">Cart</span>
                 {cart.length > 0 && (
@@ -89,7 +89,7 @@ export default function TailorWebsite() {
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-64">
+            <DropdownMenuContent align="end" className="w-[300px] h-[50vh] overflow-y-auto">
               {cart.length === 0 ? (
                 <DropdownMenuItem>Your cart is empty</DropdownMenuItem>
               ) : (
@@ -121,7 +121,7 @@ export default function TailorWebsite() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">Bestspoke Tailoring for Every Occasion</h2>
           <p className="text-xl mb-8">Crafting elegance, one stitch at a time</p>
-          <Button size="lg">Book an Appointment</Button>
+         <Link href="/appointment"> <Button size="lg">Book an Appointment</Button></Link>
         </div>
       </section>
 
@@ -131,14 +131,19 @@ export default function TailorWebsite() {
           <h2 className="text-3xl font-bold mb-8 text-center text-black">Our Designs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {products.map(product => (
-              <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <Image  className="w-full h-48 object-cover"src={product.image} alt={product.name}/>
+              <div key={product.id} className=" bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 z-0">
+                <Image  className="w-full h-48 object-cover object-top"src={product.image} alt={product.name}/>
                 <div className="p-4">
                   <h3 className="text-xl font-semibold mb-2 text-black">{product.name}</h3>
                   <p className=" mb-4  text-black">₦{product.price.toLocaleString()}</p>
+                  <div className='flex justify-around items-center gap-4'>
                   <Button onClick={() => addToCart(product)} className="w-full">
                     Add to Cart
                   </Button>
+                  <Button className="w-full">
+                   View Product
+                  </Button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -152,7 +157,7 @@ export default function TailorWebsite() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[1,2].map((i) => (
               <div key={i} className="bg-white p-6 rounded-lg shadow-md">
-                <p className=" text-black mb-4">Elegant Stitches has transformed my wardrobe. Their attention to detail and perfect fit is unmatched.</p>
+                <p className=" text-black mb-4">Adom Stitches has transformed my wardrobe. Their attention to detail and perfect fit is unmatched.</p>
                 <p className="font-semibold  text-black"> Happy Client {i}</p>
               </div>
             ))}
@@ -164,21 +169,20 @@ export default function TailorWebsite() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Elegant Stitches</h3>
+              <h3 className="text-xl font-semibold mb-4">Adom Stitches</h3>
               <p>Crafting bespoke garments since 2005</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
               <p>123 Fashion Street, Lagos, Nigeria</p>
               <p>Phone: +234 123 456 7890</p>
-              <p>Email: info@elegantstitches.com</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
               <div className="flex space-x-4">
                 <a href="#" className="hover:text-gray-300">Facebook</a>
-                <a href="#" className="hover:text-gray-300">Instagram</a>
-                <a href="#" className="hover:text-gray-300">Twitter</a>
+                <a href="https://www.instagram.com/domi.yung?igsh=MXhlam12d2ZkNm1oZg==" className="hover:text-gray-300">Instagram</a>
+                <a href="https://x.com/domiyung1?t=-7Ljzqb7kRiRgS7GG0a0lQ&s=09" className="hover:text-gray-300">Twitter</a>
                 <a href="#" className="hover:text-gray-300">WatsApp</a>
               </div>
             </div>
