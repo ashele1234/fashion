@@ -43,7 +43,7 @@ export const products: Product[] = [
   { id: 8, name: "Danshiki", price: 25000, image: Img8 }, 
 ];
 
-export default function TailorWebsite() {
+const Page=()=> {
   const [cart, setCart] = useState<Product[]>([]);
 
   const addToCart = (product: Product) => {
@@ -190,3 +190,4 @@ export default function TailorWebsite() {
     </div>
   );
 }
+export default Page
