@@ -1,66 +1,53 @@
 import Bookdata from "@/app/models/BookingModel";
-import DbConfig from "@/app/utils/DbConfig"
+import DbConfig from "@/app/utils/DbConfig";
 import { NextRequest, NextResponse } from "next/server";
 
-
- export const POST=async(req:NextRequest,res:NextResponse)=>{
- try {
+// POST Request Handler
+export const POST = async (req: NextRequest) => {
+  try {
     await DbConfig();
-    const{name,email,phoneNumber,date,time,service,additionalNotes}= await req.json()
-        const Book = await Bookdata.create({ 
-            name,
-            email,
-            phoneNumber,
-            date,
-            time,
-            service,
-            additionalNotes,})
-            return NextResponse.json({
-                message:"session booked successfuly",
-                status:200,
-                data:Book
-            })
+    const { name, email, phoneNumber, date, time, service, additionalNotes } = await req.json();
     
- } catch (res) {
+    const newBooking = await Bookdata.create({
+      name,
+      email,
+      phoneNumber,
+      date,
+      time,
+      service,
+      additionalNotes,
+    });
+
     return NextResponse.json({
-        message:"session booking unsuccessfuly",
-        status:400,
-    })
- }
-}
+      message: "Session booked successfully",
+      status: 200,
+      data: newBooking,
+    });
+  } catch (error) {
+    console.error("Error booking session:", error);
+    return NextResponse.json({
+      message: "Session booking unsuccessful",
+      status: 400,
+    });
+  }
+};
 
-export const GET=async(req:NextRequest,res:NextResponse)=>{
-    try {
-       await DbConfig();
-           const Book = await Bookdata.find()
-               return NextResponse.json({
-                   message:"session gotten successfuly",
-                   status:200,
-                   data:Book
-               })
-       
-    } catch (res) {
-       return NextResponse.json({
-           message:"session getting unsuccessfuly",
-           status:400,
-       })
-    }
-   }
+// GET Request Handler
+export const GET = async () => {
+  try {
+    await DbConfig();
+    const bookings = await Bookdata.find();
 
-   export const DELETE=async(req:NextRequest,res:NextResponse)=>{
-    try {
-       await DbConfig();
-           const Book = await Bookdata.findByIdAndDelete()
-               return NextResponse.json({
-                   message:"session deleted successfuly",
-                   status:200,
-                   data:Book
-               })
-       
-    } catch (res) {
-       return NextResponse.json({
-           message:"error deleting ",
-           status:400,
-       })
-    }
-   }
+    return NextResponse.json({
+      message: "Sessions retrieved successfully",
+      status: 200,
+      data: bookings,
+    });
+  } catch (error) {
+    console.error("Error retrieving sessions:", error);
+    return NextResponse.json({
+      message: "Failed to retrieve sessions",
+      status: 400,
+    });
+  }
+};

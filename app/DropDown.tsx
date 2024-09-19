@@ -1,38 +1,32 @@
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuSub,  } from "@radix-ui/react-dropdown-menu"
+import { DropdownMenu} from "@radix-ui/react-dropdown-menu"
 import { 
-    // DropdownMenu, 
     DropdownMenuContent, 
     DropdownMenuItem, 
     DropdownMenuTrigger,
     DropdownMenuSeparator,
-    DropdownMenuSubTrigger
-  } from "@/components/ui/dropdown-menu"
+  } from "@/components/ui/dropdown-menu";
 const DropDown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button variant="secondary"className="border-black">
+        <Button className="border-black bg-black text-white ">
          Menu
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className=" w-full max-sm:w-[300px] sm:w-[300px] md:w-[500px] h-[40vh] flex justify-center items-center flex-col mt-4 font-bold gap-4 transform transition:ease-in-out duration-300">
         <DropdownMenuItem>
         <a href="http://localhost:3000/"><span>Home</span></a>
-          <span className="ml-auto">⌘ H</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <a href="#products"><span>Designs</span></a>
-          <span className="ml-auto">⌘ D</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <span>About</span>
-          <span className="ml-auto">⌘ A</span>
+          <a href=""><span>About</span></a>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <span>Contact</span>
-          <span className="ml-auto">⌘ C</span>
+         <a href=""><span>Contact</span></a>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

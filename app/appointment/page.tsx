@@ -30,10 +30,9 @@ const Page = () => {
       const response = await fetch(url, {
         method: 'POST',
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ name, email, phoneNumber, date, time, serviceType, notes })
-      })
+        body: JSON.stringify({ name, email, phoneNumber, date, time, serviceType, notes })})
       
-      if (response.ok) {
+      if (response.status === 200) {
        setTimeout(() => {
         router.push("http://localhost:3000/")
        }, 3000)
