@@ -69,10 +69,10 @@ const Page=()=> {
           />
           <nav>
             <ul className="flex space-x-10 sm:hidden max-sm:hidden md:flex lg:flex font-bold">
-              <li><Link href="#"><a className="text-black hover:text-gray-800">Home</a></Link></li>
-              <li><Link href="#products"><a className="text-black hover:text-gray-800">Designs</a></Link></li>
-              <li><Link href="#"><a className="text-black hover:text-gray-800">About</a></Link></li>
-              <li><Link href="#"><a className="text-black hover:text-gray-800">Contact</a></Link></li>
+            <Link href="#"><li className="text-black hover:text-gray-800">Home</li></Link>
+            <Link href="#products"><li className="text-black hover:text-gray-800">Designs</li></Link>
+            <Link href="#"><li className="text-black hover:text-gray-800">About</li></Link>
+            <Link href="#"><li className="text-black hover:text-gray-800">Contact</li></Link>
             </ul>
           </nav>
           
@@ -178,10 +178,10 @@ const Page=()=> {
             <div>
               <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-gray-300">Facebook</a>
-                <a href="https://www.instagram.com/domi.yung?igsh=MXhlam12d2ZkNm1oZg==" className="hover:text-gray-300">Instagram</a>
-                <a href="https://x.com/domiyung1?t=-7Ljzqb7kRiRgS7GG0a0lQ&s=09" className="hover:text-gray-300">Twitter</a>
-                <a href="#" className="hover:text-gray-300">WhatsApp</a>
+                <Link href="#" className="hover:text-gray-300">Facebook</Link>
+                <Link href="https://www.instagram.com/domi.yung?igsh=MXhlam12d2ZkNm1oZg==" className="hover:text-gray-300">Instagram</Link>
+                <Link href="https://x.com/domiyung1?t=-7Ljzqb7kRiRgS7GG0a0lQ&s=09" className="hover:text-gray-300">Twitter</Link>
+                <Link href="#" className="hover:text-gray-300">WhatsApp</Link>
               </div>
             </div>
           </div>
